@@ -7,24 +7,24 @@
 
   <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
+ <!-- estilos globales -->
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: Arial, sans-serif; line-height: 1.6; background: #111; color: #fff; }
 
-    /* Navbar */  
+    /* Navbar superior(esta fija por el sticky)*/  
     header {
       background: #111;
       padding: 15px;
-      position: sticky;
+      position: sticky;/* hace visible la navbar al bajar*/
       top: 0;
-      z-index: 10;
+      z-index: 10; /* evitar que lo tapen*/
     }
     nav ul {
       list-style: none;
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 20px;/* separacion entre lso enlaces*/
     }
     nav a {
       color: #fff;
@@ -41,12 +41,14 @@
       padding: 120px 20px;
       position: relative;
     }
+    /* capa oscura encima de la imagen*/
     .banner::before {
       content: "";
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
       background: rgba(0,0,0,0.5);
     }
+    /* texo del banner*/
     .banner h1, .banner .btn, .banner .estreno, .banner .countdown {
       position: relative;
       z-index: 1;
@@ -86,11 +88,11 @@
 
     /* Sinopsis */
     .sinopsis .contenedor {
-      display: flex;
+      display: flex;/* flex responsive*/
       gap: 20px;
       padding: 50px 20px;
       align-items: center;
-      flex-wrap: wrap;
+      flex-wrap: wrap; /* para celulares*/
       color: #fff;
     }
     .sinopsis img {
@@ -122,6 +124,7 @@
       border-radius: 8px;
       transition: transform 0.3s, box-shadow 0.3s;
     }
+    /* animacion de las imagenes de la galeria*/
     .actor img:hover {
       transform: scale(1.05);
       box-shadow: 0 4px 15px rgba(0,0,0,0.5);
@@ -215,6 +218,8 @@
         <li><a href="#galeria">Elenco</a></li>
         <li><a href="#cronologia">Cronología</a></li>
         <li><a href="#contacto">Contacto</a></li>
+        <!-- enlace externoa  teinda.html target blank -->
+        <a href="tienda.html" target="_blank">Tienda</a>
       </ul>
     </nav>
   </header>
@@ -278,7 +283,7 @@ Luces que parpadean, ecos en los pasillos y huellas invisibles que dejan un rast
 Lo que parecía un caso sencillo se convierte en un enfrentamiento con presencias que pisan entre lo real y lo desconocido.
           </p>
           <p style="font-style: italic; color: #ccc;">
-            ⚠️ ¿Te atreverías a descubrir lo que se oculta en las sombras?
+            ⚠ ¿Te atreverías a descubrir lo que se oculta en las sombras?
           </p>
         </div>
       </div>
@@ -293,14 +298,14 @@ Lo que parecía un caso sencillo se convierte en un enfrentamiento con presencia
       <div class="actor"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/PatrickWilson-byPhilipRomano.jpg" alt="Actor 2"><h3>Patrick Wilson</h3></div>
       <div class="actor"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Elliot_Cowan_-_MUSE_%28Portrait%29.jpg" alt="Actor 3"><h3>Elliot Cowan</h3></div>
       <div class="actor"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Ben_Hardy_by_Gage_Skidmore.jpg" alt="Actor 4"><h3>Ben Hardy</h3></div>
-      <div class="actor"><img src="https://m.media-amazon.com/images/M/MV5BYjU2NDEwYTgtYTI2OC00ZDA5LTg2ZjItZDk5OWNmNjhiNGUyXkEyXkFqcGc@._V1_.jpg" alt="Actor 5"><h3>Beau Gadson</h3></div>
+      <div class="actor"><img src="https://m.media-amazon.com/images/M/MV5BYjU2NDEwYTgtYTI2OC00ZDA5LTg2ZjItZDk5OWNmNjhiNGUyXkEyXkFqcGc@.V1.jpg" alt="Actor 5"><h3>Beau Gadson</h3></div>
       <div class="actor"><img src="https://static.tvtropes.org/pmwiki/pub/images/john_brotherton.jpg" alt="Actor 6"><h3>Jhon Brotherton</h3></div>
       <div class="actor"><img src="https://i.pinimg.com/736x/59/56/71/595671763a33b923df30afa57694847e.jpg" alt="Actor 7"><h3>Mia Tomlinson</h3></div>
       <div class="actor"><img src="https://image.tmdb.org/t/p/original/iGhPYTNZWYXzMgp0EWKJCuWnevZ.jpg" alt="Actor 8"><h3>Madison Lawlor</h3></div>
       <div class="actor"><img src="https://webservice.mymovies.dk/PhotosInherited/0f860d18-46a2-49c8-a8b8-f95098dd301f.jpg" alt="Actor 9"><h3>Kate Fahy</h3></div>
       <div class="actor"><img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Shannon_Kook_2014.jpg" alt="Actor 10"><h3>Shannon Kook</h3></div>
       <div class="actor"><img src="https://image.tmdb.org/t/p/original/A43USnarLnfWXDvWimT24cPVfEm.jpg" alt="Actor 11"><h3>Rebecca Calder</h3></div>
-      <div class="actor"><img src="https://m.media-amazon.com/images/M/MV5BMmNhMTg0YWYtNjJjYi00ZGVhLWExNjQtZmUxYWQzMWVkMTc3XkEyXkFqcGc@._V1_.jpg" alt="Actor 12"><h3>Steve Coulter</h3></div>
+      <div class="actor"><img src="https://m.media-amazon.com/images/M/MV5BMmNhMTg0YWYtNjJjYi00ZGVhLWExNjQtZmUxYWQzMWVkMTc3XkEyXkFqcGc@.V1.jpg" alt="Actor 12"><h3>Steve Coulter</h3></div>
     </div>
   </section>
 
