@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda - El Conjuro 4</title>
+  <!-- boostrap para organizar productos en columnas -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+    }
+
+    /* Tarjeta producto */
+    .producto {
+      background-color: #111;
+      border-radius: 10px;
+      overflow: hidden;
+      text-align: center;
+      padding: 15px;
+      transition: transform 0.3s; /* Animación al pasar el mouse */
+    }
+    /* Zoom al pasar el mouse sobre el producto */
+    .producto:hover {
+      transform: scale(1.05);
+    }
+    .producto img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-bottom: 2px solid #e63946;
+    }
+
+    /* Formulario oculto */
+    #formularioCompra, #mensajeGracias {
+      display: none;
+      background-color: #111;
+      padding: 30px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    .btn-volver {
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container py-5">
+
+    <!-- TÍTULO -->
+    <h1 class="text-center mb-4 text-danger">Tienda Oficial - El Conjuro 4</h1>
+
+    <!-- SECCIÓN PRODUCTOS -->
+    <div id="productos" class="row g-4">
+
+      <div class="col-md-4">
+        <div class="producto">
+          <img src="https://i.etsystatic.com/58595986/r/il/9f4686/7167396597/il_fullxfull.7167396597_a3ei.jpg" alt="Camiseta">
+          <h5 class="mt-3">Camiseta Oficial</h5>
+          <p>$45.000 COP</p>
+          <button class="btn btn-danger btn-comprar" onclick="comprar('Camiseta Oficial', '45.000 COP')">Comprar</button>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="producto">
+          <img src="https://i.etsystatic.com/9987723/r/il/1247bc/3311937762/il_570xN.3311937762_mr3o.jpg" alt="Taza">
+          <h5 class="mt-3">Taza del Conjuro</h5>
+          <p>$25.000 COP</p>
+          <button class="btn btn-danger btn-comprar" onclick="comprar('Taza del Conjuro', '25.000 COP')">Comprar</button>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="producto">
+          <img src="https://i.etsystatic.com/18345845/r/il/a492de/5700148383/il_570xN.5700148383_asky.jpg" alt="Poster">
+          <h5 class="mt-3">Póster de colección</h5>
+          <p>$30.000 COP</p>
+          <button class="btn btn-danger btn-comprar" onclick="comprar('Póster de colección', '30.000 COP')">Comprar</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FORMULARIO DE COMPRA -->
+    <div id="formularioCompra">
+      <h2 class="text-center text-danger">Completa tu compra</h2>
+      <p class="text-center mb-4"><strong>Producto:</strong> <span id="productoSeleccionado"></span><br>
+      <strong>Precio:</strong> <span id="precioSeleccionado"></span></p>
+
+      <form id="formCompra">
+        <input class="form-control mb-3" type="text" id="nombre" placeholder="Nombre completo" required>
+        <input class="form-control mb-3" type="email" id="correo" placeholder="Correo electrónico" required>
+        <input class="form-control mb-3" type="text" id="direccion" placeholder="Dirección" required>
+
+        <select id="pago" class="form-control mb-3" required>
+          <option value="">Método de pago</option>
+          <option value="Nequi">Nequi</option>
+          <option value="Daviplata">Daviplata</option>
+          <option value="Tarjeta de Crédito">Tarjeta de Crédito</option>
+          <option value="PSE">PSE</option>
+        </select>
+
+        <button type="submit" class="btn btn-danger w-100">Confirmar compra</button>
+        <button type="button" class="btn btn-secondary w-100 btn-volver" onclick="cancelarCompra()">Cancelar</button>
+      </form>
+    </div>
+
+    <!-- MENSAJE DE GRACIAS -->
+    <div id="mensajeGracias" class="text-center">
+      <h2 class="text-success">🎉 ¡Gracias por tu compra!</h2>
+      <p>Tu pedido ha sido registrado correctamente.</p>
+      <button class="btn btn-danger" onclick="volverAlInicio()">Volver a la tienda</button>
+    </div>
+
+  </div>
+
+  <script>
+    // Mostrar formulario de compra
+    function comprar(producto, precio) {
+      document.getElementById("productos").style.display = "none";
+      document.getElementById("formularioCompra").style.display = "block";
+
+      document.getElementById("productoSeleccionado").textContent = producto;
+      document.getElementById("precioSeleccionado").textContent = precio;
+    }
+
+    // Cancelar y volver a la tienda
+    function cancelarCompra() {
+      document.getElementById("formularioCompra").style.display = "none";
+      document.getElementById("productos").style.display = "flex";
+    }
+
+    // Confirmar compra
+    document.getElementById("formCompra").addEventListener("submit", function(e) {
+      e.preventDefault();
+      document.getElementById("formularioCompra").style.display = "none";
+      document.getElementById("mensajeGracias").style.display = "block";
+    });
+
+    // Volver al inicio
+    function volverAlInicio() {
+      document.getElementById("mensajeGracias").style.display = "none";
+      document.getElementById("productos").style.display = "flex";
+    }
+  </script>
+
+</body>
+</html>
